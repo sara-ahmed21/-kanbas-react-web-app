@@ -1,0 +1,41 @@
+.dropdown-navigation{
+  background-color: lightgrey;
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+  margin-left: 20px;
+}
+
+.dropdown-navigation > li {
+  background-color: lightgray;
+  border: 1px solid lightgray !important;
+  border-left: none !important;
+  text-decoration-color: brown;
+}
+
+.wd-navigation {
+    background-color: white;
+    list-style: none;
+    padding: 0px;
+    width: 125px;
+    margin: 0px;
+    margin-left: 20px;
+  }
+  .wd-navigation li {
+    padding-left: 10px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .wd-navigation li.wd-active {
+    border-left: 2px solid black;
+  }
+  .wd-navigation li.wd-active a {
+    color: black;
+  }
+  .wd-navigation a {
+    color: red;
+    text-decoration: none;
+  }  
+
