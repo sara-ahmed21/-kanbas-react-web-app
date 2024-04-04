@@ -1,10 +1,8 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { modules } from "../../Database";
-import Module from "module";
-
 
 const initialState = {
-  modules: [module],
+  modules: modules,
   module: { name: "New Module 123", 
   description: "New Description" },
 
@@ -20,19 +18,19 @@ const modulesSlice = createSlice({
     },
 
     deleteModule: (state, action) => {   
-    //   state.modules = state.modules.filter(
-    //   (module) => module._id !== action.payload
-    // );
+      state.modules = state.modules.filter(
+      (module) => module._id !== action.payload
+    );
     },
 
     updateModule: (state, action) => {
-      // state.modules = state.modules.map((module) => {
-      //   if (module._id === action.payload._id) {
-      //     return action.payload;
-      //   } else {
-      //     return module;
-      //   }
-      // });
+      state.modules = state.modules.map((module) => {
+        if (module._id === action.payload._id) {
+          return action.payload;
+        } else {
+          return module;
+        }
+      });
     },
 
 

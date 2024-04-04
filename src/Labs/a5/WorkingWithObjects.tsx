@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+const API_BASE = process.env.REACT_APP_API_BASE;
+
 function WorkingWithObjects() {
   const [assignment, setAssignment] = useState({
     id: 1, title: "NodeJS Assignment",
     description: "Create a NodeJS server with ExpressJS",
     due: "2021-10-10", completed: false, score: 0,
   });
-  const ASSIGNMENT_URL = "http://localhost:4000/a5/assignment"
+  const ASSIGNMENT_URL = `${API_BASE}/a5/assignment`;
   const fetchAssignment = async () => {
     const response = await axios.get(`${ASSIGNMENT_URL}`);
     setAssignment(response.data);
@@ -22,11 +24,12 @@ function WorkingWithObjects() {
 
 
   const [module, setModule] = useState({
-    id: 1, name: "NodeJS",
+    id: 1, 
+    name: "NodeJS",
     description: "Create a NodeJS server with ExpressJS",
     course: "20211010"
   });
-  const MODULE_URL = "http://localhost:4000/a5/module"
+  const MODULE_URL = `${API_BASE}/a5/module`;
 
   return (
     <div>
@@ -44,15 +47,14 @@ function WorkingWithObjects() {
       </button>
 
 
-      <input type="text" 
-        onChange={(e) => setAssignment({ ...assignment,
-            title: e.target.value })}
-        value={assignment.title}/>
-
       <a className="btn btn-primary"
       href={`${ASSIGNMENT_URL}/title/${assignment.title}`}>
         Update Title
-      </a> <br/>
+      </a> 
+      <input type="text" 
+        onChange={(e) => setAssignment({ ...assignment,
+            title: e.target.value })}
+        value={assignment.title}/><br/>
 
       <input type="number" 
         onChange={(e) => setAssignment({ ...assignment,
