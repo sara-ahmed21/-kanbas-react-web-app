@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-const API_BASE = process.env.REACT_APP_API_BASE;
 
 function WorkingWithObjects() {
   const [assignment, setAssignment] = useState({
@@ -8,7 +7,7 @@ function WorkingWithObjects() {
     description: "Create a NodeJS server with ExpressJS",
     due: "2021-10-10", completed: false, score: 0,
   });
-  const ASSIGNMENT_URL = `${API_BASE}/a5/assignment`;
+  const ASSIGNMENT_URL = 'http://localhost:4000/a5/assignment';
   const fetchAssignment = async () => {
     const response = await axios.get(`${ASSIGNMENT_URL}`);
     setAssignment(response.data);
@@ -29,7 +28,7 @@ function WorkingWithObjects() {
     description: "Create a NodeJS server with ExpressJS",
     course: "20211010"
   });
-  const MODULE_URL = `${API_BASE}/a5/module`;
+  const MODULE_URL = `http://localhost:4000/a5/module`;
 
   return (
     <div>
@@ -37,8 +36,11 @@ function WorkingWithObjects() {
       <h4>Modifying Properties</h4>
       
       <input onChange={(e) => setAssignment({
-            ...assignment, title: e.target.value })}
+            ...assignment, title: e.target.value 
+          })}
         value={assignment.title} type="text" />
+
+
       <button className="btn btn-primary" onClick={updateTitle} >
         Update Title to: {assignment.title}
       </button>
@@ -111,7 +113,6 @@ function WorkingWithObjects() {
       href={`${MODULE_URL}/title/${module.name}`}>
         Update Name
       </a> <br/>
-
 
       <input type="text" 
         onChange={(e) => setModule({ ...module,
