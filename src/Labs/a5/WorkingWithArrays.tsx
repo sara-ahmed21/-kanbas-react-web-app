@@ -12,6 +12,7 @@ function WorkingWithArrays() {
         description: "Create a NodeJS server with ExpressJS",
         due: "2021-09-09",
         completed: false,
+
     });
     const [todos, setTodos] = useState<any[]>([]);
     const fetchTodos = async () => {
